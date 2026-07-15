@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TAIBI Instagram企画書">
+  <title>TAIBI｜Instagram企画書</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #24332d;
+      --text: #495850;
+      --muted: #7c8982;
+      --paper: #f3f1eb;
+      --surface: #fffefa;
+      --green: #405b4d;
+      --green-soft: #e2ebe5;
+      --gold: #9d7d45;
+      --gold-soft: #f4ecdc;
+      --blue: #48697e;
+      --blue-soft: #e7eef2;
+      --line: rgba(36, 51, 45, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 920px);
+      gap: 42px;
+      width: min(1210px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 100px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      height: fit-content;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 254, 250, 0.9);
+    }
+
+    .sidebar-brand {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .sidebar-title {
+      margin-top: 9px;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    nav a {
+      padding: 8px 9px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      padding: clamp(44px, 7vw, 72px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--surface);
+    }
+
+    .hero-kicker {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    h1,
+    h2 {
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 62px);
+      line-height: 1.35;
+    }
+
+    .hero-index {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-index a {
+      padding: 20px 20px 0 0;
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1.55;
+      text-decoration: none;
+    }
+
+    .hero-index a + a {
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+    }
+
+    .hero-index strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green);
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .preface {
+      padding-top: 56px;
+      scroll-margin-top: 24px;
+    }
+
+    .premise {
+      padding: clamp(28px, 5vw, 44px);
+      border-radius: 20px;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .premise h2 {
+      margin-bottom: 22px;
+      color: #fff;
+      font-size: clamp(27px, 4vw, 36px);
+    }
+
+    .premise p {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .premise p + p {
+      margin-top: 20px;
+    }
+
+    .concept-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .concept-link {
+      display: block;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      color: var(--green);
+      text-decoration: none;
+      scroll-margin-top: 24px;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .concept-link:hover {
+      border-color: rgba(64, 91, 77, 0.42);
+      background: var(--green-soft);
+    }
+
+    .concept-link strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .concept-link span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .chapter {
+      padding-top: 86px;
+      scroll-margin-top: 24px;
+    }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .chapter-no {
+      padding-top: 11px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.5;
+    }
+
+    .plan-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-left: 148px;
+    }
+
+    .plan {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: var(--surface);
+      scroll-margin-top: 24px;
+    }
+
+    .plan-head {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 25px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plan-id {
+      padding-top: 3px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .title-label {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .plan-body {
+      padding: 8px 28px 28px;
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: 18px;
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .detail-label {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .detail-content {
+      color: var(--text);
+    }
+
+    .detail-content p + p {
+      margin-top: 14px;
+    }
+
+    .plain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      list-style: none;
+    }
+
+    .plain-list li {
+      position: relative;
+      padding-left: 17px;
+    }
+
+    .plain-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.78em;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .axis-box {
+      padding: 18px 20px;
+      border-radius: 13px;
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .axis-box .plain-list li::before {
+      background: var(--green);
+    }
+
+    .op-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 17px 0;
+    }
+
+    .op {
+      padding: 17px;
+      border: 1px solid rgba(157, 125, 69, 0.22);
+      border-radius: 12px;
+      background: var(--gold-soft);
+    }
+
+    .op strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    .op p {
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .op p + p {
+      margin-top: 8px;
+    }
+
+    .quote {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .body-callout {
+      margin-top: 17px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--green);
+      background: rgba(226, 235, 229, 0.48);
+    }
+
+    .body-callout strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    .reference {
+      display: block;
+      margin-top: 15px;
+      padding: 14px 17px;
+      border-radius: 11px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .footnote {
+      margin: 20px 0 0 148px;
+      padding: 26px 28px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--gold-soft);
+      color: #765c30;
+    }
+
+    .footnote p + p {
+      margin-top: 8px;
+    }
+
+    footer {
+      margin: 88px 0 0 148px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 940px) {
+      .layout {
+        display: block;
+        width: min(100% - 28px, 920px);
+        padding-top: 14px;
+      }
+
+      .sidebar {
+        position: static;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 14px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        overflow-x: auto;
+      }
+
+      .sidebar-title {
+        display: none;
+      }
+
+      nav {
+        flex-direction: row;
+        flex: 1;
+        gap: 2px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      nav a {
+        flex-shrink: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 45px 24px;
+        border-radius: 20px;
+      }
+
+      .hero-index {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-index a,
+      .hero-index a + a {
+        padding: 15px 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-index a:last-child {
+        border-bottom: 0;
+      }
+
+      .concept-links {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter {
+        padding-top: 66px;
+      }
+
+      .chapter-head {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .chapter-no {
+        padding-top: 0;
+      }
+
+      .plan-list,
+      .footnote,
+      footer {
+        margin-left: 0;
+      }
+
+      .plan-head {
+        grid-template-columns: 58px 1fr;
+        gap: 10px;
+        padding: 21px 20px;
+      }
+
+      .plan-body {
+        padding: 5px 20px 22px;
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .op-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .layout {
+        display: block;
+        width: 100%;
+        padding: 0;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .hero,
+      .plan {
+        background: #fff;
+      }
+
+      .premise {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      .premise h2,
+      .premise p {
+        color: var(--ink);
+      }
+
+      .chapter,
+      .plan {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="sidebar-brand">TAIBI</p>
+      <p class="sidebar-title">ラフ構成案</p>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#operation">運用大前提</a>
+        <a href="#concept-toc">コンセプト設計ToC向け</a>
+        <a href="#concept-tob">コンセプト設計ToB。整体院向け</a>
+        <a href="#ads">広告用企画｜4本</a>
+        <a href="#solutions">通常投稿｜お悩み解決系5本</a>
+        <a href="#entertainment">通常投稿｜エンタメ系3本</a>
+      </nav>
+    </aside>
+
+    <main id="document">
+      <header class="hero">
+        <p class="hero-kicker">TAIBI</p>
+        <h1>ラフ構成案</h1>
+        <div class="hero-index">
+          <a href="#ads"><strong>4本</strong>広告用企画｜4本</a>
+          <a href="#solutions"><strong>5本</strong>通常投稿｜お悩み解決系5本</a>
+          <a href="#entertainment"><strong>3本</strong>通常投稿｜エンタメ系3本</a>
+        </div>
+      </header>
+
+      <section class="preface">
+        <div class="premise" id="operation">
+          <h2>運用大前提</h2>
+          <p>運用１ヶ月目はどの企画が当たるか全くわからないため、<br>
+          エンタメ企画、おしゃれなナイトルーティン企画、対談企画。開発秘話など<br>
+          バリエーション豊富に展開し、広告との親和性を確かめる期間にいたします🙇‍♀️</p>
+          <p>1ヶ月、2ヶ月目と様子を見たあとで広告に振り切るのか？通常投稿で攻める（世界観を保つのか、エンタメに寄せていく）のかは、検討していきます。</p>
+          <p>よろしくお願いいたします。</p>
+        </div>
+
+        <div class="concept-links">
+          <a class="concept-link" id="concept-toc" href="https://taibi-toc-concept.surge.sh/" target="_blank" rel="noreferrer">
+            <strong>コンセプト設計ToC向け</strong>
+            <span>https://taibi-toc-concept.surge.sh/</span>
+          </a>
+          <a class="concept-link" id="concept-tob" href="https://taibi-tob-concept.surge.sh/" target="_blank" rel="noreferrer">
+            <strong>コンセプト設計ToB。整体院向け</strong>
+            <span>https://taibi-tob-concept.surge.sh/</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="chapter" id="ads">
+        <div class="chapter-head">
+          <p class="chapter-no">01</p>
+          <h2>広告用企画｜4本</h2>
+        </div>
+
+        <div class="plan-list">
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">広告①</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>TOB向け企画【広告A】</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>整体院などの院長様。自分の施術だけでなく、家で簡単にできる商品で施術効果が長続きし、LTVを向上させたいと悩んでいる方。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>ビフォーアフター</li>
+                    <li>整体院で美容パックを使う意外性</li>
+                    <li>顔と首を同時にケアする15分の新メニュー</li>
+                    <li>既存施術への追加</li>
+                    <li>自律神経まで整える頸顔メニュー</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>整体院でTAIBIを使用し、施術前後の変化を見せる企画。</p>
+                  <p>冒頭は以下の3パターンをテストする。</p>
+                  <div class="op-grid">
+                    <div class="op">
+                      <strong>OP-A</strong>
+                      <p>ビフォーアフター訴求</p>
+                      <p class="quote">「いつもの施術に15分貼るだけ。施術効果が長持ちした、首まで覆う美容パック」</p>
+                    </div>
+                    <div class="op">
+                      <strong>OP-B</strong>
+                      <p>意外性訴求</p>
+                      <p class="quote">「整体院で首まで覆うパックをつけると。。。このビフォーアフターを見てください」</p>
+                    </div>
+                    <div class="op">
+                      <strong>OP-C</strong>
+                      <p>新メニュー訴求</p>
+                      <p class="quote">「新しい施術メニューを探している整体院の先生へ。顔と首を同時にケアする“15分メニュー”があります」</p>
+                    </div>
+                  </div>
+                  <div class="body-callout">
+                    <strong>本編</strong>
+                    <p class="quote">「顔と首を一体でケアし、自律神経まで整えるTAIBIの頸顔メニューです」</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">広告②</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>TOB向け企画【広告B】</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>ToB向け。整体院など。施術の効果を上げたい。お客様の体の変化にこだわりたい。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>首・顔という見た目に直結する場所のケア</li>
+                    <li>自律神経</li>
+                    <li>目の開き方</li>
+                    <li>睡眠の質</li>
+                    <li>顔に疲れやよどみを残さない</li>
+                    <li>美容とセルフケア</li>
+                    <li>クラウドファンディング1,400万円</li>
+                    <li>専門家の理想から生まれた商品</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発責任者様が出演。</p>
+                  <p>首と顔を正しくケアすることにより、自律神経を整え、目の開き方、睡眠の質、顔に疲れやよどみを残さないことを伝える。</p>
+                  <p>美容とセルフケアの両方を叶えるパックとして紹介する。</p>
+                  <p>顔だけを美しくするのではなく、首までひとつに。<br>クラウドファンディングで1,400万円突破。<br>専門家の理想から生まれたTAIBI。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">広告③</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>TOC向け企画【広告C】</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <ul class="plain-list">
+                    <li>日頃忙しく、首や目に疲れが出ている人</li>
+                    <li>睡眠の質が悪く、寝ても回復しない人</li>
+                    <li>仕事終わりに整体や治療院へ行く時間がない人</li>
+                    <li>長く入浴すると自分の時間が取れない人</li>
+                    <li>自分のケアを後回しにしている人</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>10分で美容と自律神経の改善、目の疲れ改善、睡眠の質向上。ズボラに自分のケアまでできること。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発責任者様が出演。</p>
+                  <p>ターゲットが抱える、首・目の疲れ、睡眠の質、時間不足、自分のケアを後回しにしている状況を描く。</p>
+                  <p class="quote">「10分で美容と自分のケアまでできるものが知りたい」</p>
+                  <p>というインサイトに刺し、商品を購入検討してもらう広告。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">広告④</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>TOC向け企画【広告D】</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <ul class="plain-list">
+                    <li>日頃忙しく、首や目に疲れが出ている人</li>
+                    <li>睡眠の質が悪く、寝ても回復しない人</li>
+                    <li>仕事終わりに整体や治療院へ行く時間がない人</li>
+                    <li>長く入浴すると自分の時間が取れない人</li>
+                    <li>お風呂をついキャンセルしてしまう人</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>サウナの代わり</li>
+                    <li>自宅で15分貼るだけ</li>
+                    <li>自律神経と美容</li>
+                    <li>〇〇の成分を首から吸収</li>
+                    <li>睡眠の質</li>
+                    <li>治療院院長の推薦</li>
+                    <li>クラウドファンディング1,400万円</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発責任者様が出演。</p>
+                  <p>一般的な美容パックは美容のみである一方、TAIBIは自宅で15分貼るだけで自律神経を整え、美容も叶えるパックとして紹介する。</p>
+                  <p>お風呂をキャンセルしてしまう人でも使用でき、睡眠の質が上がったと治療院院長も推薦していることを伝える。</p>
+                  <p>お家で貼るだけで体内が整う体験ができる</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="chapter" id="solutions">
+        <div class="chapter-head">
+          <p class="chapter-no">02</p>
+          <h2>通常投稿｜お悩み解決系5本</h2>
+        </div>
+
+        <div class="plan-list">
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">お悩み解決系①</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>毎日が忙しい女性に聞いた「何で日頃の疲れ（目や首）をケアしていますか？」</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <ul class="plain-list">
+                    <li>35〜50歳の一般女性</li>
+                    <li>疲れに悩んでいる</li>
+                    <li>睡眠の質が浅い</li>
+                    <li>寝ても疲れが取れない</li>
+                    <li>日中はバリバリ仕事をしている</li>
+                    <li>夜のケアに時間を使えない</li>
+                    <li>美容が好きだが、めんどくさがり</li>
+                    <li>18時に仕事が終わって、ご飯作って、片付けたらもう20:30。お風呂入って乾かしたらもう21:15</li>
+                  </ul>
+                  <p>そこから動くのはだるい女性。だからお風呂は手短に自分のケアまで済ませてしまう。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>忙しい女性の疲れ・睡眠・ケア不足と、TAIBI使用後の変化。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>女性に「何で疲れをケアしていますか？」と質問する。</p>
+                  <p>最後に3名がTAIBIを体験し、TAIBIを使用しながら施術する。その後、ビフォーアフターまで見せる。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">お悩み解決系②</p>
+              <div>
+                <h3>タイトル：フロキャン自律神経</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <ul class="plain-list">
+                    <li>美容意識が高い人</li>
+                    <li>忙しい日にお風呂をキャンセルしてしまう人</li>
+                    <li>自律神経が乱れ、朝に強い眠気を感じる人</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>お風呂に入れない夜でも、首までケアできる美容パック。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発者様が出演。</p>
+                  <p>忙しくてお風呂をキャンセルしてしまい、自律神経が乱れて朝に眠気を感じる状況を描く。</p>
+                  <p>そのような夜に、首までケアする美容パックとしてTAIBIを紹介する。</p>
+                  <p>美容成分、効果成分をうたい、風呂キャンでも睡眠の質が上がったり、自律神経が整うことを伝える。</p>
+                  <p>権威生はクラウドファンディングで1400万。院長が大絶賛。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">お悩み解決系③</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>整体院の女性院長と対談✖️３本＝撮影自体は１０分間は話していただくことを想定しています。</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>自律神経が整わず、睡眠の質が低下して悩んでいるToC向け。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>なぜ首のケアが大事なのか。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>女性院長様との対談形式。</p>
+                  <p>「なぜ首のケアが大事なの？」「現代の40〜50代特に首が硬すぎる。」</p>
+                  <p>「でもみんなケアするのは肩とか腰ばかり。」「それじゃ疲れは取れない」「首も目もちゃんとケアしないといけない」</p>
+                  <p>をテーマに、身体を見る専門家だからこそ、顔だけでなく首まで大切にしていることを伝える。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">お悩み解決系④</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>整体院の女性院長と対談</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>自律神経が整わず、睡眠の質が低下して悩んでいるToC向け。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>首はそもそもどのような部位なのか。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>女性院長様との対談形式。こちらも２本に分割することを想定しています。</p>
+                  <p>自律神経が崩れると睡眠の質が下がる。特に神経が集まる首。ここを改善しないと疲れて行って、どんどん老ける40〜50代が多いことを伝える。</p>
+                  <p>その場合のセルフケアを紹介。</p>
+                  <p>パックを張りながら、ストレッチ。パックを張りながら瞑想など。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">TOB向けに１本。</p>
+              <div>
+                <h3>タイトル：整体院の女性院長さんにインタビュー</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>TAIBIを検討している整体院様向け</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <p>お客様がTAIBIを使ってどうなった？</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>女性院長様との対談形式。</p>
+                  <p>首をこのシートでケアすることの意味<br>セルフケアが大切であること<br>セルフケアは面倒だからこそ、このパックを愛用していることを伝える。</p>
+                  <p>お客様の施術効果がびっくりするほど変わった。<br>お客様のリアルな声を書く</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="chapter" id="entertainment">
+        <div class="chapter-head">
+          <p class="chapter-no">03</p>
+          <h2>通常投稿｜エンタメ系3本</h2>
+        </div>
+
+        <div class="plan-list">
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">エンタメ系①</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>“開発者さんに密着する動画</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>原案では具体的なターゲット未定義。マス受けを狙う</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>情熱大陸風</li>
+                    <li>開発者様の見た目とのギャップ</li>
+                    <li>世界初の美容とセルフケアを同時に叶えるパック</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発者様へ密着するエンタメ企画。</p>
+                  <p>「この男、こう見えて[a]世界初の美容とセルフケアを同時に叶えるパックを作った男である」と紹介する。</p>
+                  <p>髭もじゃ、いかつい印象を活用し、エンタメに振り切った紹介にする。</p>
+                  <a class="reference" href="https://www.instagram.com/reel/DZcK0OfiOcy/?igsh=bmhkMzM0cnV3N3Jj" target="_blank" rel="noreferrer">
+                    参考<br>
+                    https://www.instagram.com/reel/DZcK0OfiOcy/?igsh=bmhkMzM0cnV3N3Jj
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">エンタメ系②</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>7年かけて、この形になった</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <ul class="plain-list">
+                    <li>整体へ行く時間はあるが、家ではケアを続けられない人。権威性や努力がみられるコンテンツが好き</li>
+                    <li>家で簡単に目や首の疲れを取りたい人</li>
+                    <li>睡眠不足を解消したい人</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>7年間の開発</li>
+                    <li>首側面まで包む形</li>
+                    <li>自律神経</li>
+                    <li>寝転がるだけでできる</li>
+                    <li>専門家の声から生まれた商品</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>開発責任者または社長様が出演。</p>
+                  <p>開発資料、試作品、形状の変遷、国内外の施設を訪れた写真を並べ、一般的な顔用マスクではなく、首側面まで包む形を作った理由を語る。</p>
+                  <p>専門家から何度も「首まで一緒にケアしたい」と聞いたこと<br>首までケアする理由は自律神経の改善であること<br>家では続かない人でも、貼って寝転がるだけでできること<br>目や首の疲れ、睡眠不足を解消したいという声<br>を7年かけて形にしたと伝える。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan">
+            <header class="plan-head">
+              <p class="plan-id">エンタメ系③</p>
+              <div>
+                <p class="title-label">タイトル：</p>
+                <h3>クラウドファンディングで1400万集まった夢の商品</h3>
+              </div>
+            </header>
+            <div class="plan-body">
+              <div class="detail">
+                <p class="detail-label">ターゲット：</p>
+                <div class="detail-content">
+                  <p>原案では「最後にどんな人に手に取ってほしいかを訴求」と記載されており、具体的な対象は未定義。</p>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">訴求軸：</p>
+                <div class="detail-content axis-box">
+                  <ul class="plain-list">
+                    <li>クラウドファンディング1,400万円</li>
+                    <li>治療院、整体院、整骨院からの推薦</li>
+                    <li>商品に含まれる成分</li>
+                    <li>夢の商品</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="detail">
+                <p class="detail-label">内容：</p>
+                <div class="detail-content">
+                  <p>本来15万円を希望していた商品が、治療院、整体院、整骨院から強く推薦され、1,400万円を達成したことを伝える。</p>
+                  <p>どのような成分が入っているのかを紹介し、認知の1本目として使用する。</p>
+                  <p>最後に、どのような人に手に取ってほしいかを訴求する。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="footnote">
+          <p>[a]こう見えてを面白おかしく。</p>
+          <p>例えばヒゲとか</p>
+          <p>あまりにもいかついなど</p>
+          <p>使っていい表現がありましたらご共有ください🙇‍♀️</p>
+        </div>
+      </section>
+
+      <footer>TAIBI</footer>
+    </main>
+  </div>
+
+  <script>
+    const links = [...document.querySelectorAll('nav a')]
+    const sections = links
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean)
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        links.forEach((link) => {
+          link.classList.toggle(
+            'active',
+            link.getAttribute('href') === `#${entry.target.id}`
+          )
+        })
+      })
+    }, { rootMargin: '-20% 0px -65% 0px' })
+
+    sections.forEach((section) => observer.observe(section))
+  </script>
+</body>
+</html>
